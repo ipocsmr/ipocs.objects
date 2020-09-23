@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
 namespace ipocs.objects.Objects
 {
@@ -20,13 +16,13 @@ namespace ipocs.objects.Objects
 
     protected override void Serialize(List<byte> buffer)
     {
-      buffer.Add(this.frequency);
-      buffer.Add(this.signalHead1);
-      buffer.Add(this.signalHead2);
-      buffer.Add(this.signalHead3);
-      buffer.Add(this.signalHead4);
-      buffer.Add(this.signalHead5);
-      buffer.Add(this.signalHead6);
+      buffer.Add(frequency);
+      buffer.Add(signalHead1);
+      buffer.Add(signalHead2);
+      buffer.Add(signalHead3);
+      buffer.Add(signalHead4);
+      buffer.Add(signalHead5);
+      buffer.Add(signalHead6);
     }
   }
 }

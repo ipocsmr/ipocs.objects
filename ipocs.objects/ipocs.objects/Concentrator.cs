@@ -1,10 +1,7 @@
 ﻿using ipocs.objects.Objects;
 using PostSharp.Patterns.Model;
-using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Linq;
-using System.Reflection;
 
 namespace ipocs.objects
 {
@@ -13,16 +10,6 @@ namespace ipocs.objects
   {
     public string Name { get; set; } = string.Empty;
     public ObservableCollection<BasicObject> Objects { get; set; } = new ObservableCollection<BasicObject>();
-
-    public Concentrator()
-    {
-      foreach (Type o in Assembly.GetAssembly(typeof(BasicObject)).GetTypes().Where((t) => typeof(BasicObject).IsAssignableFrom(t) && !t.IsAbstract))
-      {
-        var bo = (BasicObject)Activator.CreateInstance(o);
-        bo.Name = o.Name + " " + Objects.Count;
-        Objects.Add(bo);
-      }
-    }
 
     public List<byte> Serialize()
     {

@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
 namespace ipocs.objects.Objects
 {
@@ -15,8 +11,8 @@ namespace ipocs.objects.Objects
 
     protected override void Serialize(List<byte> buffer)
     {
-      buffer.Add(this.output);
-      buffer.Add(this.speed);
+      buffer.Add(output);
+      buffer.Add(speed);
     }
   }
 }

@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
 namespace ipocs.objects.Objects
 {
@@ -18,11 +14,11 @@ namespace ipocs.objects.Objects
 
     protected override void Serialize(List<byte> buffer)
     {
-      buffer.Add(this.numPositions);
-      buffer.Add(this.resetPositionInput);
-      buffer.Add(this.trackDetectionInput);
-      buffer.Add(this.clockwiseOutput);
-      buffer.Add(this.counterClockwiseOutput);
+      buffer.Add(numPositions);
+      buffer.Add(resetPositionInput);
+      buffer.Add(trackDetectionInput);
+      buffer.Add(clockwiseOutput);
+      buffer.Add(counterClockwiseOutput);
     }
   }
 }

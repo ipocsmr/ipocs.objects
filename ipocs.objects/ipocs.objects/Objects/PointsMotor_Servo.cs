@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
 namespace ipocs.objects.Objects
 {
@@ -17,7 +13,7 @@ namespace ipocs.objects.Objects
     {
       var vector = new List<byte>();
       vector.Add(MotorTypeId);
-      vector.Add(this.servoPin);
+      vector.Add(servoPin);
       vector.Add(positionPin);
       vector.Add((byte)(reverseStatus ? 1 : 0));
       return vector;
