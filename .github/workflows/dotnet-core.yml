@@ -1,0 +1,46 @@
+name: .NET Core
+
+on:
+  push:
+    branches: [ master ]
+    tags:
+      - '*'
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+      with:
+        fetch-depth: 0
+    - name: Setup .NET Core
+      uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: 3.1.301
+    - name: Install dependencies
+      run: |
+        cd ipocs.objects
+        dotnet restore
+    - name: Build
+      run: |
+        cd ipocs.objects
+        dotnet build --configuration Release --no-restore
+    - name: Test
+      run: |
+        cd ipocs.objects
+        dotnet test --no-restore --verbosity normal
+    - name: Package Release
+      run: |
+        cd ipocs.objects
+        dotnet pack -c Release -o out
+    - name: Install tool
+      run: dotnet tool install gpr -g
+    - name: NuGet push
+      if: startsWith(github.ref, 'refs/tags/')
+      run: |
+        cd ipocs.objects
+        gpr push **/*.nupkg -k ${{ secrets.GITHUB_TOKEN }}
