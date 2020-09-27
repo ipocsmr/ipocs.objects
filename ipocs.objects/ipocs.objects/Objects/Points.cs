@@ -16,11 +16,6 @@ namespace ipocs.objects.Objects
 
     public ObservableCollection<PointsMotor> Motors { get; } = new ObservableCollection<PointsMotor>();
 
-    public Points()
-    {
-      this.Motors.Add(new PointsMotor_Pulse());
-    }
-
     protected override void Serialize(List<byte> buffer)
     {
       buffer.Add(this.FrogOutput);
