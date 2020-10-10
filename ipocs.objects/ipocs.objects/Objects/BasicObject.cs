@@ -26,7 +26,7 @@ namespace ipocs.objects.Objects
       };
       int lengthPos = buffer.Count;
       buffer.Add(0); // Length;
-      byte[] toBytes = System.Text.Encoding.ASCII.GetBytes(this.Name);
+      byte[] toBytes = System.Text.Encoding.UTF8.GetBytes(this.Name);
       buffer.AddRange(toBytes);
       buffer.Add(0);
       this.Serialize(buffer);
